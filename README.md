@@ -3,6 +3,7 @@ my personal website 2023
 
 install dependecies
 > sudo npm init
+
 > sudo npm install
 
 run live-reload local server
