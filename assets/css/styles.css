@@ -149,7 +149,7 @@ img {
 
 /*==================== LAYOUT ====================*/
 .container {
-  max-width: 768px;
+  max-width: 1200px;
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
 }
@@ -871,7 +871,12 @@ img {
 
 /*==================== CONTACT ME ====================*/
 .contact__container {
+  margin-top: 24px;
   row-gap: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Adjust the height as needed */
 }
 
 .contact__information {
