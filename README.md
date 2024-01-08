@@ -1,5 +1,5 @@
-# rogeraleite_2023
-my personal website 2023
+# rogeraleite
+my personal website
 
 install dependecies
 > sudo npm init
