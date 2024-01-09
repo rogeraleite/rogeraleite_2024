@@ -60,6 +60,11 @@
   }
 }
 
+.contact-row {
+  display: flex;
+  align-items: center; /* Optional, for vertical alignment */
+}
+
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
   /* HSL color mode */
