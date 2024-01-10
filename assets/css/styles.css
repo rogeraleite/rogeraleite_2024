@@ -14,11 +14,13 @@
   --first-color-alt: hsl(var(--hue-color), 57%, 53%);
   --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
   --title-color: hsl(var(--hue-color), 8%, 15%);
+  --secondary-button-color: white;
   --text-color: hsl(var(--hue-color), 8%, 45%);
   --text-color-light: hsl(var(--hue-color), 8%, 65%);
   --input-color: hsl(var(--hue-color), 70%, 96%);
   --body-color: hsl(var(--hue-color), 60%, 99%);
   --container-color: #FFF;
+  --card-bg-color-dark: hsl(210, 10%, 20%);
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
   /*========== Font and typography ==========*/
@@ -60,6 +62,65 @@
   }
 }
 
+/* Open Button Style Based on Existing Button */
+.card__open-btn {
+  background-color: transparent;
+  color: var(--first-color);
+  outline: 1px solid whitesmoke; /* Adding 1px stroke */
+  font-size: var(--normal-font-size);
+  padding: var(--mb-0-5) var(--mb-1);
+  border-radius: var(--mb-0-5);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, outline-color 0.3s; /* Add transition for outline-color */
+  text-align: center;
+  display: inline-block;
+  font-weight: var(--font-medium);
+  margin-top: 12px;
+}
+
+.card__open-btn:hover {
+  background-color: whitesmoke;
+  color: black;
+  outline-color: var(--first-color); /* Change outline color on hover if desired */
+}
+
+/* ###############Grid begin */
+.newrecommend__container.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 columns */
+  grid-template-rows: repeat(2, 1fr); /* Creates 2 rows */
+  grid-gap: 10px; /* Adjust the gap as needed */
+  justify-content: center; /* Center grid horizontally */
+  align-items: center; /* Center grid vertically */
+  height: 100%; /* Adjust as needed */
+}
+
+.card {
+  background-color: white; /* Or any color of your choice */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a shadow for depth */
+  padding: 20px; /* Adjust padding as needed */
+  text-align: center; /* Center text inside the card */
+}
+
+
+.newPortfolio__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows of equal height */
+  gap: 20px; /* Space between grid items */
+}
+
+
+
+.card.grid__item {
+  display: flex;
+  flex-direction: column;
+  /* Add any other styling you need, like padding, margins, etc. */
+}
+
+/* ###############Grid end*/
+
 .contact-row {
   display: flex;
   align-items: center; /* Optional, for vertical alignment */
@@ -70,12 +131,18 @@ body.dark-theme {
   /* HSL color mode */
   --first-color-second: hsl(var(--hue-color), 30%, 8%);
   --title-color: hsl(var(--hue-color), 8%, 95%);
+  --secondary-button-color: #dfdfdf;
   --text-color: hsl(var(--hue-color), 8%, 75%);
   --input-color: hsl(var(--hue-color), 29%, 16%);
   --body-color: hsl(var(--hue-color), 28%, 12%);
   --container-color: hsl(var(--hue-color), 29%, 16%);
   --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+   /* Add this to change .card background color in dark theme */
+   .card {
+    background-color: var(--card-bg-color-dark);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
+  }
 }
 
 /*========== Button Dark/Light ==========*/
@@ -398,6 +465,14 @@ img {
 /*==================== ABOUT ====================*/
 .about__img {
   width: 200px;
+  border-radius: .5rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.portfolio__img {
+  width: 200px;
+  margin-top: 12px;
   border-radius: .5rem;
   justify-self: center;
   align-self: center;
@@ -747,31 +822,37 @@ img {
   visibility: visible;
 }
 
-/*==================== PORTFOLIO ====================*/
-.portfolio__container {
+/*==================== recommend ====================*/
+.recommend__container {
   overflow: initial;
+  max-width: 80%;
 }
 
-.portfolio__content {
+.recommend__content {
   padding: 0 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* or any specific height */
+  margin: 24px;
 }
 
-.portfolio__img {
-  width: 265px;
+.recommend__img {
+  width: 500px;
   border-radius: .5rem;
   justify-self: center;
 }
 
-.portfolio__title {
+.recommend__title {
   font-size: var(--h3-font-size);
   margin-bottom: var(--mb-0-5);
 }
 
-.portfolio__description {
+.recommend__description {
   margin-bottom: var(--mb-0-75);
 }
 
-.portfolio__button:hover .button__icon {
+.recommend__button:hover .button__icon {
   transform: translateX(0.25rem);
 }
 
@@ -780,7 +861,7 @@ img {
   content: '';
 }
 
-.swiper-portfolio-icon {
+.swiper-recommend-icon {
   font-size: 2rem;
   color: var(--first-color);
 }
@@ -934,6 +1015,7 @@ img {
 
 .footer__container {
   row-gap: 3.5rem;
+  margin-left: 12px;
 }
 
 .footer__bg {
@@ -1088,7 +1170,7 @@ img {
   }
   .about__container,
   .skills__container,
-  .portfolio__content,
+  .recommend__content,
   .project__container,
   .contact__container,
   .footer__container {
@@ -1163,6 +1245,9 @@ img {
   .about__img {
     width: 350px;
   }
+  .portfolio__img {
+    width: 420px;
+  }
   .about__description {
     text-align: initial;
   }
@@ -1194,12 +1279,19 @@ img {
   .services__modal-content {
     width: 450px;
   }
-  .portfolio__img {
+  .recommend__img {
     width: 320px;
   }
-  .portfolio__content {
+  .recommend__content {
     align-items: center;
   }
+  .recommend__content img {
+    max-width: 90%;         /* Ensure the image is responsive */
+    height: auto;            /* Maintain aspect ratio */
+    border-radius: 10px;     /* Rounded corners, adjust radius as needed */
+    margin: 20px;        /* Top margin */
+}
+
   .project {
     text-align: initial;
   }
@@ -1250,11 +1342,12 @@ img {
   .services__container {
     grid-template-columns: repeat(3, 238px);
   }
-  .portfolio__content {
+  .recommend__content {
     column-gap: 5rem;
   }
-  .swiper-portfolio-icon {
+  .swiper-recommend-icon {
     font-size: 3.5rem;
+    margin: 12px;
   }
   .swiper-button-prev {
     left: -3.5rem;
@@ -1271,4 +1364,88 @@ img {
   .contact__inputs {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hover Effect for Cards */
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+/* ////////// */
+/* Popup styles */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
 }

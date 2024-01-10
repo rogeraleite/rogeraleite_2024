@@ -1,3 +1,53 @@
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("passwordModal");
+    var btns = document.querySelectorAll('.card');
+    var span = document.getElementsByClassName("close")[0];
+
+    btns.forEach(function(btn) {
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+    });
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    document.getElementById("submitPassword").onclick = function() {
+        var password = document.getElementById("passwordInput").value;
+        if(password == "swordfish") {  // Replace 'yourPassword' with the actual password
+            // Password is correct, redirect or show content
+            alert("Password Correct!");
+            modal.style.display = "none";
+        } else {
+            alert("Incorrect Password!");
+        }
+    };
+});
+////////////
+document.getElementById("openPopupLink").addEventListener("click", function(event){
+    event.preventDefault(); // Prevent default link action
+    document.getElementById("passwordPopup").style.display = "block";
+});
+
+// Close the popup
+document.getElementsByClassName("close-btn")[0].addEventListener("click", function(){
+    document.getElementById("passwordPopup").style.display = "none";
+});
+
+// Handle password submission
+document.getElementById("submitPassword").addEventListener("click", function(){
+    var password = document.getElementById("passwordInput").value;
+    // Add your password handling logic here
+});
+
+
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
@@ -93,7 +143,7 @@ modalCloses.forEach((modalClose) => {
 })
 
 /*==================== PORTFOLIO SWIPER  ====================*/
-let swiperPortfolio = new Swiper('.portfolio__container', {
+let swiperPortfolio = new Swiper('.recommend__container', {
     cssMode: true,
     loop: true,
 
@@ -105,13 +155,14 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
       el: '.swiper-pagination',
       clickable: true,
     },
+    simulateTouch: false, // Disable touch interaction
 })
 
 /*==================== TESTIMONIAL ====================*/
 let swiperTestimonial = new Swiper('.testimonial__container', {
     loop: true,
     grabCursor: true,
-    spaceBetween: 48,
+    spaceBetween: 24,
 
     pagination: {
         el: '.swiper-pagination',

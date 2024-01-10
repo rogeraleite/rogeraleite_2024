@@ -11,4 +11,4 @@ install dependecies
 > npm install -g browser-sync
 
 run live-reload local server
-> browser-sync start --server --files "index.html, assets/css/*.css, assets/js/*.js" --port 8080
+> browser-sync start --server --files "index.html, assets/css/*.css, assets/js/*.js, assets/DS_joke/dselements.html" --port 8060
