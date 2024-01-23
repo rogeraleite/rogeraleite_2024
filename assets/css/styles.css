@@ -231,6 +231,13 @@ img {
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
 }
+.containerReference {
+  display: flex; /* Use flexbox to lay out children side by side */
+  align-items: center; /* Aligns children vertically in the center */
+  margin-top: 4px; /* Adds some space at the top of the container */
+  justify-content: flex-start; /* Aligns children horizontally to the left */
+  gap: 12px; /* Adds 12px space between each item */
+}
 
 .grid {
   display: grid;
@@ -438,6 +445,21 @@ img {
   background-color: var(--first-color-alt);
 }
 
+.button-secondary {
+  display: inline-block;
+  background-color: #FFF; /* Inverted background color */
+  color: var(--first-color); /* Inverted text color */
+  padding: 1rem;
+  border-radius: .5rem;
+  font-weight: var(--font-medium);
+  border: 2px solid var(--first-color); /* Optional: add a border with the primary color */
+}
+
+.button-secondary:hover {
+  background-color: var(--first-color-alt); /* Primary alternate color as background on hover */
+  color: #FFF; /* Inverted text color on hover */
+}
+
 .button__icon {
   font-size: 1.25rem;
   margin-left: var(--mb-0-5);
@@ -482,7 +504,7 @@ img {
 }
 
 .portfolio__img {
-  width: 200px;
+  width: 400px;
   margin-top: 12px;
   border-radius: .5rem;
   justify-self: center;
@@ -844,14 +866,17 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* or any specific height */
+  height: 100%; 
   margin: 24px;
+  border-radius: .5rem;
 }
 
 .recommend__img {
   width: 500px;
   border-radius: .5rem;
   justify-self: center;
+  max-width: 100%;
+  height: auto;
 }
 
 .recommend__title {
@@ -865,6 +890,12 @@ img {
 
 .recommend__button:hover .button__icon {
   transform: translateX(0.25rem);
+}
+
+.center-image {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 .swiper-button-prev::after,

@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+    // span.onclick = function() {
+    //     modal.style.display = "none";
+    // }
 
     window.onclick = function(event) {
         if (event.target == modal) {
@@ -19,33 +19,33 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    document.getElementById("submitPassword").onclick = function() {
-        var password = document.getElementById("passwordInput").value;
-        if(password == "swordfish") {  // Replace 'yourPassword' with the actual password
-            // Password is correct, redirect or show content
-            alert("Password Correct!");
-            modal.style.display = "none";
-        } else {
-            alert("Incorrect Password!");
-        }
-    };
+    // document.getElementById("submitPassword").onclick = function() {
+    //     var password = document.getElementById("passwordInput").value;
+    //     if(password == "swordfish") {  // Replace 'yourPassword' with the actual password
+    //         // Password is correct, redirect or show content
+    //         alert("Password Correct!");
+    //         modal.style.display = "none";
+    //     } else {
+    //         alert("Incorrect Password!");
+    //     }
+    // };
 });
 ////////////
-document.getElementById("openPopupLink").addEventListener("click", function(event){
-    event.preventDefault(); // Prevent default link action
-    document.getElementById("passwordPopup").style.display = "block";
-});
+// document.getElementById("openPopupLink").addEventListener("click", function(event){
+//     event.preventDefault(); // Prevent default link action
+//     document.getElementById("passwordPopup").style.display = "block";
+// });
 
-// Close the popup
-document.getElementsByClassName("close-btn")[0].addEventListener("click", function(){
-    document.getElementById("passwordPopup").style.display = "none";
-});
+// // Close the popup
+// document.getElementsByClassName("close-btn")[0].addEventListener("click", function(){
+//     document.getElementById("passwordPopup").style.display = "none";
+// });
 
-// Handle password submission
-document.getElementById("submitPassword").addEventListener("click", function(){
-    var password = document.getElementById("passwordInput").value;
-    // Add your password handling logic here
-});
+// // Handle password submission
+// document.getElementById("submitPassword").addEventListener("click", function(){
+//     var password = document.getElementById("passwordInput").value;
+//     // Add your password handling logic here
+// });
 
 
 /*==================== MENU SHOW Y HIDDEN ====================*/
@@ -143,9 +143,10 @@ modalCloses.forEach((modalClose) => {
 })
 
 /*==================== PORTFOLIO SWIPER  ====================*/
-let swiperPortfolio = new Swiper('.recommend__container', {
+let swiperPortfolio = new Swiper('.swiper-container', {
     cssMode: true,
     loop: true,
+    centeredSlides: true,
 
     navigation: {
       nextEl: '.swiper-button-next',
